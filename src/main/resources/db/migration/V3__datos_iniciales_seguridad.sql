@@ -1,3 +1,7 @@
+-- =====================================================================
+-- V3: Datos iniciales para AgroSierra (Privilegios, Roles, Usuarios, Lotes y Labores)
+-- =====================================================================
+
 -- 1. PRIVILEGIOS
 INSERT INTO privilegios (id, nombre, descripcion) VALUES (1, 'LOTE_LEER', 'Consultar el padron y detalle de lotes');
 INSERT INTO privilegios (id, nombre, descripcion) VALUES (2, 'LABOR_LEER', 'Consultar las labores de un lote');
@@ -12,7 +16,7 @@ INSERT INTO roles (id, nombre, descripcion) VALUES (1, 'TECNICO', 'Tecnico de ca
 INSERT INTO roles (id, nombre, descripcion) VALUES (2, 'JEFE_CAMPO', 'Jefe de campo');
 INSERT INTO roles (id, nombre, descripcion) VALUES (3, 'ADMINISTRADOR', 'Administrador general del sistema');
 
--- 3. ROL_PRIVILEGIOS (Sección 3.3)
+-- 3. ROL_PRIVILEGIOS
 INSERT INTO rol_privilegios (rol_id, privilegio_id) VALUES (1, 1);
 INSERT INTO rol_privilegios (rol_id, privilegio_id) VALUES (1, 2);
 INSERT INTO rol_privilegios (rol_id, privilegio_id) VALUES (1, 3);
@@ -28,22 +32,22 @@ INSERT INTO rol_privilegios (rol_id, privilegio_id) VALUES (2, 6);
 INSERT INTO rol_privilegios (rol_id, privilegio_id) VALUES (3, 1);
 INSERT INTO rol_privilegios (rol_id, privilegio_id) VALUES (3, 7);
 
--- 4. USUARIOS (BCrypt de 'Agro2026*')
+-- 4. USUARIOS (BCrypt real de 'Agro2026*')
 INSERT INTO usuarios (id, username, password, nombre_completo, estado, fecha_creacion)
-VALUES (1, 'tecnico1', '$2a$10$7Z8KqDqAUpB0lZkQ1F7Qze6.s/h6bX2mB1Qd8xXqE5O2N5U9iF7Z.', 'Juan Perez Tecnico', 1, CURRENT_TIMESTAMP);
+VALUES (1, 'tecnico1', '$2a$10$Bq7C4bL5xMvZJszx4y0.xu7OPXaVV1InPtlPKgDy9cA53uwsqdYVu', 'Juan Perez Tecnico', 1, CURRENT_TIMESTAMP);
 
 INSERT INTO usuarios (id, username, password, nombre_completo, estado, fecha_creacion)
-VALUES (2, 'jefe1', '$2a$10$7Z8KqDqAUpB0lZkQ1F7Qze6.s/h6bX2mB1Qd8xXqE5O2N5U9iF7Z.', 'Carlos Ramos Jefe', 1, CURRENT_TIMESTAMP);
+VALUES (2, 'jefe1', '$2a$10$Bq7C4bL5xMvZJszx4y0.xu7OPXaVV1InPtlPKgDy9cA53uwsqdYVu', 'Carlos Ramos Jefe', 1, CURRENT_TIMESTAMP);
 
 INSERT INTO usuarios (id, username, password, nombre_completo, estado, fecha_creacion)
-VALUES (3, 'admin', '$2a$10$7Z8KqDqAUpB0lZkQ1F7Qze6.s/h6bX2mB1Qd8xXqE5O2N5U9iF7Z.', 'Administrador Sistema', 1, CURRENT_TIMESTAMP);
+VALUES (3, 'admin', '$2a$10$Bq7C4bL5xMvZJszx4y0.xu7OPXaVV1InPtlPKgDy9cA53uwsqdYVu', 'Administrador Sistema', 1, CURRENT_TIMESTAMP);
 
 -- 5. USUARIO_ROLES
 INSERT INTO usuario_roles (usuario_id, rol_id) VALUES (1, 1);
 INSERT INTO usuario_roles (usuario_id, rol_id) VALUES (2, 2);
 INSERT INTO usuario_roles (usuario_id, rol_id) VALUES (3, 3);
 
--- 6. PADRÓN DE LOTES (8 lotes en 3 valles)
+-- 6. PADRÓN DE LOTES
 INSERT INTO lotes (id, codigo, nombre, hectareas, cultivo, valle, campania_cerrada, dosis_maxima_por_hectarea)
 VALUES (1, 'LOT-001', 'La Quebrada', 5.50, 'Papas Nativas', 'Valle Mantaro', 0, 4.00);
 
