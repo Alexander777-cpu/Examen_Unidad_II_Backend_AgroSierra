@@ -31,7 +31,6 @@ public class LaborRequestDTO {
     @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "La fecha debe tener formato YYYY-MM-DD")
     private String fecha;
 
-    @NotBlank(message = "El responsable es obligatorio")
     @Size(max = 50, message = "El responsable no puede exceder 50 caracteres")
     private String responsable;
 
